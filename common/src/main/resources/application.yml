@@ -1,0 +1,8 @@
+server:
+  port: 8009
+spring:
+  application:
+    name: common
+  cloud:
+    nacos:
+      server-addr: localhost:8848
