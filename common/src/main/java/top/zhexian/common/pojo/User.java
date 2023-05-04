@@ -1,4 +1,4 @@
-package top.zhexian.userService.pojo;
+package top.zhexian.common.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,11 +10,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class User {
-    private Integer id;
+    private String id;
     private String avatar;
     private String nickname;
     private String username;
     private String password;
+    private String phoneNumber;
     private String inventCode;
     private String inventUserCode;
 }

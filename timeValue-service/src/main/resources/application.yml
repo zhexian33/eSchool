@@ -2,7 +2,7 @@ server:
   port: 8010
 spring:
   application:
-    name: userService
+    name: timeValueService
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/e_school?useSSL=false
@@ -11,8 +11,3 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848
-#ribbon:
-#  eager-load:
-#    enabled: true
-#    clients:
-#      - userService
