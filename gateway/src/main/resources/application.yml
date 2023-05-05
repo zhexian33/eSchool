@@ -17,5 +17,15 @@ spring:
           predicates:
             - Path=/common/**
             - Cookie=user,/**
+        - id: timeValueService
+          uri: lb://timeValueService
+          predicates:
+            - Path=/timeValue/**
       default-filters:
         - AddRequestHeader=origin,gateway
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods: "*"

@@ -3,10 +3,12 @@ package top.zhexian.userService.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import top.zhexian.common.pojo.TimeValue;
 import top.zhexian.common.pojo.User;
 import top.zhexian.common.tools.R;
-import top.zhexian.common.tools.SnowFlakeGenerateIdWorker;
+import top.zhexian.feign.client.TimeValueClient;
 import top.zhexian.userService.service.UserService;
 
 import javax.servlet.http.Cookie;
@@ -17,9 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    static SnowFlakeGenerateIdWorker idWorker = SnowFlakeGenerateIdWorker.getIdWorker();
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private TimeValueClient timeValueClient;
 
     /***
      * 保存user
@@ -28,11 +32,14 @@ public class UserController {
      */
     @PostMapping("/save")
     public R<User> save(@RequestBody User user) {
+        log.info(user.toString());
         LambdaQueryWrapper<User> qw = new LambdaQueryWrapper<>();
         qw.eq(User::getUsername, user.getUsername());
         User one = userService.getOne(qw);
         if (one == null) {
-            userService.saveUser(user);
+            user = userService.saveUser(user);
+            TimeValue timeValue = timeValueClient.saveByUserId(user.getId());
+            log.info(timeValue.toString());
             return R.success(user);
         } else {
             return R.error("用户名重复");

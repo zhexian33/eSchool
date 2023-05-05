@@ -4,7 +4,7 @@ package top.zhexian.common.tools;
 public class SnowFlakeGenerateIdWorker {
     public static SnowFlakeGenerateIdWorker idWorker;
 
-    {
+    static {
         idWorker = new SnowFlakeGenerateIdWorker(0l, 0l);
     }
 

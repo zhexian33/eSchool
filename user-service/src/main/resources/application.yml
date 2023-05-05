@@ -11,8 +11,8 @@ spring:
   cloud:
     nacos:
       server-addr: localhost:8848
-#ribbon:
-#  eager-load:
-#    enabled: true
-#    clients:
-#      - userService
+feign:
+  client:
+    config:
+      default:
+        logger-level: basic
