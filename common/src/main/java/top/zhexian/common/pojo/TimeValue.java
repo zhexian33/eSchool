@@ -5,13 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class TimeValue {
+public class TimeValue implements Serializable {
     private String id;
-    private String userId;
     private Integer totalValue;
     private Integer usefulValue;
     private Integer todayValue;

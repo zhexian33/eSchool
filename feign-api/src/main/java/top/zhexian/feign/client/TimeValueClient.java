@@ -1,6 +1,7 @@
 package top.zhexian.feign.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import top.zhexian.common.pojo.TimeValue;
@@ -10,4 +11,7 @@ public interface TimeValueClient {
 
     @PostMapping("/timeValue/{userId}")
     TimeValue saveByUserId(@PathVariable String userId);
+
+    @DeleteMapping("/timeValue/{id}")
+    TimeValue deleteById(@PathVariable String id);
 }

@@ -16,7 +16,7 @@ spring:
           uri: lb://commonService
           predicates:
             - Path=/common/**
-            - Cookie=user,/**
+        #            - Cookie=user,/**
         - id: timeValueService
           uri: lb://timeValueService
           predicates:
