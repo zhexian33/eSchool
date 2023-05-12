@@ -17,6 +17,8 @@ public class User implements Serializable {
     private String nickname;
     private String username;
     private String password;
+    private String payPassword;
+    private Integer vip;
     private String phoneNumber;
     private String inventCode;
     private String inventUserCode;

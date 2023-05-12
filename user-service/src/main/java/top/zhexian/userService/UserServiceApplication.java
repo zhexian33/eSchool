@@ -5,13 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import top.zhexian.feign.client.TimeValueClient;
 import top.zhexian.feign.config.DefaultFeignConfiguration;
 
 @SpringBootApplication()
-@EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class, clients = TimeValueClient.class)
+@EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class, clients = {TimeValueClient.class})
 @EnableTransactionManagement
 @EnableCaching
 @ComponentScan({

@@ -22,6 +22,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User saveUser(User user) {
         user.setId(idWorker.generateNextId());
         user.setNickname("用户" + user.getId().substring(15));
+        user.setVip(0);
         log.info(user.toString());
         String code = InventCode.getCode();
         LambdaQueryWrapper<User> qw = new LambdaQueryWrapper<>();

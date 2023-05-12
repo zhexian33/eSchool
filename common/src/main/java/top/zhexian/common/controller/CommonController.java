@@ -4,7 +4,6 @@ import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.ShearCaptcha;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +28,7 @@ public class CommonController {
      * @throws IOException
      */
     @GetMapping("/verify/*")
-    public void Verify(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void Verify(HttpServletResponse response) throws IOException {
         //定义图形验证码的长、宽、验证码字符数、干扰线宽度
         ShearCaptcha captcha = CaptchaUtil.createShearCaptcha(150, 40, 5, 4);
         //图形验证码写出，可以写出到文件，也可以写出到流

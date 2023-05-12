@@ -3,11 +3,16 @@ server:
 spring:
   application:
     name: timeValueService
+  cloud:
+    nacos:
+      server-addr: localhost:8848
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/e_school?useSSL=false
     username: root
     password: 123456
-  cloud:
-    nacos:
-      server-addr: localhost:8848
+  redis:
+    host: 192.168.157.100
+    port: 6379
+    database: 0
+#    password: 37482tjl

@@ -15,6 +15,7 @@ public class RedisTest {
 
     @Test
     public void test() {
-        System.out.println(redisTemplate.opsForValue().get("张飞"));
+        redisTemplate.opsForValue().set("张飞", "213");
+//        System.out.println(redisTemplate.opsForValue().get("张飞"));
     }
 }
